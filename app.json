@@ -1,12 +1,27 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/home-music/index",
+    "pages/home-video/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "XX音乐",
     "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home-music/index",
+      "text": "音乐",
+      "iconPath": "assets/images/tabbar/music_normal.png",
+      "selectedIconPath": "assets/images/tabbar/music_active.png"
+    },
+    {
+      "pagePath": "pages/home-video/index",
+      "text": "视频",
+      "iconPath": "assets/images/tabbar/video_normal.png",
+      "selectedIconPath": "assets/images/tabbar/video_active.png"
+    }
+  ]
   },
   "style": "v2",
   "componentFramework": "glass-easel",
