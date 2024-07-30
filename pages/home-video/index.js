@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topMVs:[]
+    topMVs:[],
+    hasMore:true
 
   },
 
@@ -56,9 +57,12 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-
-  },
+  onReachBottom:async function(options) {
+    if(!this.data.hasMore) return
+    const res = await getTopMV(this.data.topMVs.length)
+       this.setData({topMVs:this.data.topMVs.concat(res.data)}) 
+       this.setData({hasMore:res.hasMore})
+   },
 
   /**
    * 用户点击右上角分享
