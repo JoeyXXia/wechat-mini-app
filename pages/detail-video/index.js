@@ -1,18 +1,35 @@
 // pages/detail-video/index.js
+import {getMVURL,getMVIDetail,getRelatedMV} from '../../service/api_video'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      mvURLInfo:{},
+      mvDetail:{},
+      relatedVideos:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-const id = options.id
+  onLoad:function(options){
+      const id = options.id
+
+      getMVURL(id).then( res => {
+        this.setData({mvURLInfo:res.data})
+      })
+
+      getMVIDetail(id).then( res => {
+        this.setData({mvDetail:res.data})
+      })
+
+      getRelatedMV(id).then( res => {
+        this.setData({relatedVideos:res.data})
+      })
+
   },
 
   /**
