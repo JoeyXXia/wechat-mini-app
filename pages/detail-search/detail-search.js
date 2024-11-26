@@ -1,4 +1,4 @@
-// pages/home-music/index.js
+// pages/detail-search.js
 Page({
 
   /**
@@ -14,12 +14,6 @@ Page({
   onLoad(options) {
 
   },
-
-  // click event 
-  handleSearchClick() {
-    console.log('clik')
-  },
-  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

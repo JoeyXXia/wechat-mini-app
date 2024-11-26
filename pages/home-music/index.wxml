@@ -1,2 +1,8 @@
 <!--pages/home-music/index.wxml-->
-<text>你好</text>
+
+<van-search background="#fafafa" 
+  disabled
+  shape="round"
+  placeholder="搜索喜欢的歌曲"
+  bind:click-input="handleSearchClick"
+   />
