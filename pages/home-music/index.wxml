@@ -6,3 +6,12 @@
   placeholder="搜索喜欢的歌曲"
   bind:click-input="handleSearchClick"
    />
+
+   <!-- swper -->
+   <swiper class="swiper" indicator-dots 	autoplay 	circular style="height: {{ swpierHeight}}px;">
+   <block wx:for="{{banners}}" wx:key="bannerId">
+   <swiper-item class="swiper-item">
+   <image class="swpier-image"  src="{{item.pic}}" mode="widthFix" bindload="handleSwierImageLoaded"	/>
+   </swiper-item>
+   </block>
+   </swiper>

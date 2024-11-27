@@ -3,3 +3,15 @@
 .van-search__content {
   background-color: #fff !important;
 }
+
+.swiper {
+width: 100%;
+}
+.swiper-item{
+display: flex;
+}
+
+.swiper-item .swpier-image {
+  width: 100%;
+}
+
