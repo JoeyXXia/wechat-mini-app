@@ -15,3 +15,8 @@
    </swiper-item>
    </block>
    </swiper>
+
+   <!-- recommend songs -->
+   <view class="recommend-song">
+   <area-header title="推荐歌曲"></area-header>
+   </view>
