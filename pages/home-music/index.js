@@ -2,6 +2,8 @@
 import { getBanners} from '../../service/api.homemusic'
 import selectRect from  '../../utils/select-rect'
 
+import { rankingStore} from '../../store/ranking-store'
+
 Page({
 
   /**
@@ -9,7 +11,8 @@ Page({
    */
   data: {
     swpierHeight:0,
-    banners:[]
+    banners:[],
+    recommendSongs:[]
   },
 
 
@@ -39,6 +42,16 @@ Page({
    */
   onLoad(options) {
     this.getPageData()
+
+    //store dispatch
+    rankingStore.dispatch("getRankingDataAction")
+
+    // get shared data
+    rankingStore.onState("hotRanking", res => {
+      if(!res.tracks) return 
+      const recommendSongs = res.tracks.slice(0,6)
+      this.setData({recommendSongs})
+    })
   },
 
 })

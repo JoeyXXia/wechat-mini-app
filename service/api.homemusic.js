@@ -5,3 +5,9 @@ export function getBanners() {
     type:2
   })
 }
+
+export function getRanking(id) {
+  return xxRequest.get("/playlist/detail", {
+    id
+  })
+}
