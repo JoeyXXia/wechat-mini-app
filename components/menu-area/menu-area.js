@@ -1,4 +1,5 @@
 // components/menu-area/menu-area.js
+const app = getApp()
 Component({
 
   /**
@@ -23,7 +24,7 @@ Component({
   },
   lifetimes:{
     attached() {
-      this.setData({screenWidth:applicationCache.globalData.screenWidth})
+      this.setData({screenWidth:app.globalData.screenWidth})
     }
   },
 
