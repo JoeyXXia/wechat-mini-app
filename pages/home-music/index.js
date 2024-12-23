@@ -90,13 +90,39 @@ Page({
     })
   },
 
+  //get data from store
   handleRecommendSongs(value) {
     if(!value.tracks) return 
       this.setData({recommendSongs:value.tracks.slice(0,6)})
   },
+  handleNewRanking(value) {
 
-
-
+    if(!value.name) return
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos,newRanking:value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
+  handleOriginRanking(value) {
+    if(!value.name) return
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos,originRanking:value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
+  handleUpRanking(value) {
+    if(!value.name) return
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos,upRanking:value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
+  handlePlayInfos({currentSong,isPlaying}) {
+    if(currentSong) {
+      this.setData({currentSong})
+    }
+    if(isPlaying !== undefined) {
+      this.setData({isPlaying})
+    }
+  },
+ 
   // click event 
   handleSearchClick:function() {
     wx.navigateTo({
@@ -112,6 +138,8 @@ Page({
     })
   },
 
-  
+  onUnload() {
+
+  }
 
 })
