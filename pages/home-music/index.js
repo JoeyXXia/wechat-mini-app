@@ -3,6 +3,10 @@ import { getBanners,getSongMenuList} from '../../service/api.homemusic'
 import selectRect from  '../../utils/select-rect'
 
 import  recommendStore from '../../store/recommendStore'
+import { throttle } from 'underscore'
+
+const querySelectThrottle = throttle(selectRect,100)
+const app = getApp()
 
 Page({
 
@@ -12,13 +16,20 @@ Page({
   data: {
     swpierHeight:0,
     banners:[],
+    bannerHeight:0,
     recommendSongs:[],
 
+    //song data
     hotMenuList:[],
     recMenuList:[],
 
+    // top data
     isRankingData:false,
-    rankingInfos:{}
+    rankingInfos:{},
+
+    // current song 
+    currentSong:{},
+    isPlaying:false
   },
 
   /**
@@ -40,8 +51,6 @@ Page({
     })
   },
 
-  
-
   fetchSongMenuList() {
 
     getSongMenuList().then( res => {
@@ -51,6 +60,36 @@ Page({
       this.setData({recMenuList:res.playlists})
     })
   },
+
+  //page click event
+  onSearchClick() {
+    wx.navigateTo({
+      url: '/pages/detail-search/detail-search',
+    })
+  },
+  onBannerImageLoad(event) {
+    querySelectThrottle(".banner-image").then( res => {
+      this.setData({bannerHeight: res[0].height})
+    })
+  },
+  onRecommendMoreClick() {
+    wx.navigateTo({
+      url: '/pages/detail-song/detail-song?type=recommend',
+    })
+  },
+  onSongItemTap(evnet) {
+    const index = event.currentTarget.dataset.index
+  
+  },
+  onPlayOrPauseBtnTap() {
+
+  },
+  onPlayBarAlbumTap() {
+    wx.navigateTo({
+      url: '/pages/music-player/music-player',
+    })
+  },
+
   handleRecommendSongs(value) {
     if(!value.tracks) return 
       this.setData({recommendSongs:value.tracks.slice(0,6)})
