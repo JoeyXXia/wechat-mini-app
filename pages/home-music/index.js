@@ -17,6 +17,8 @@ Page({
     swpierHeight:0,
     banners:[],
     bannerHeight:0,
+    screenWidth: 375,
+
     recommendSongs:[],
 
     //song data
@@ -43,6 +45,8 @@ Page({
     recommendStore.onState("recommendSongInfo", this.handleRecommendSongs)
     recommendStore.dispatch("fetchRecommendSongsAction")
 
+
+    this.setData({screenWidth:app.globalData.screenWidth})
   },
 
   getPageData(){

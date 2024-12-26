@@ -8,11 +8,9 @@ enable-flex
 style="width: {{screentWidth}}px;"
 >
 <block wx:for="{{menuList}}" wx:key="id">
-<view class="id">
-<menu-item/>
+<view class="item">
+<menu-item itemData="{{item}}"/>
 </view>
-
 </block>
-
 </scroll-view>
 </view>
