@@ -32,12 +32,11 @@
    <!-- top data -->
    <view class="ranking">
    <area-header title="巅峰榜" hasMore="{{false}}"/>
-   <ranking-item/>
    <view class="ranking-list">
    <block wx:for="{{rankingInfos}}"
    wx:key="id"
    > 
-   <ranking-item/>
+   <ranking-item itemData="{{item}}" key="{{index}}"/>
    </block>
    </view>
    </view>
