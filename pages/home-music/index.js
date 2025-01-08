@@ -3,6 +3,8 @@ import { getBanners,getSongMenuList} from '../../service/api.homemusic'
 import selectRect from  '../../utils/select-rect'
 
 import  recommendStore from '../../store/recommendStore'
+import rankingStore from '../../store/rankingStore'
+
 import { throttle } from 'underscore'
 
 const querySelectThrottle = throttle(selectRect,100)
@@ -44,6 +46,12 @@ Page({
     //store dispatch
     recommendStore.onState("recommendSongInfo", this.handleRecommendSongs)
     recommendStore.dispatch("fetchRecommendSongsAction")
+
+    rankingStore.onState("newRanking", this.handleNewRanking)
+    rankingStore.onState("originRanking", this.handleOriginRanking)
+    rankingStore.onState("upRanking", this.handleUpRanking)
+    rankingStore.dispatch("fetchRankingDataAction")
+
 
 
     this.setData({screenWidth:app.globalData.screenWidth})
