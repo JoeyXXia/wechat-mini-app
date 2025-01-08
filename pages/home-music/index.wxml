@@ -27,3 +27,4 @@
    </view> -->
 
    <menu-area title="热门歌单" menuList="{{hotMenuList}}"/>
+   <menu-area title="推荐歌单" menuList="{{recMenuList}}"/>
