@@ -1,6 +1,6 @@
 /* pages/detail-menu/detail-menu.wxss */
 
-page {
+Page {
   box-sizing: border-box;
   padding: 0 20rpx;
 }
@@ -12,5 +12,5 @@ page {
 }
 
 .list .iten {
-  width: 40%;
+  width: 48%;
 }
