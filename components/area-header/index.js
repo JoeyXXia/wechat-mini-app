@@ -27,6 +27,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onMoreTap() {
+      wx.navigateTo({
+        url: '/pages/detail-menu/detail-menu',
+      })
+    }
   }
 })

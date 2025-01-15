@@ -7,7 +7,7 @@
 <slot></slot>
 </view>
 
-<view class="default">
+<view class="default" bind:tap="onMoreTap">
   <text>{{rightText}}</text>
   <image class="icon" src="/assets/images/icons/arrow-right.png" mode=""/>
 </view>
