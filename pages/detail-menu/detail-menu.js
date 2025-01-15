@@ -1,19 +1,36 @@
 // pages/detail-menu/detail-menu.js
+import { getSongMenuList,getSongMenuTag} from '../../service/api.homemusic'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    songMenu:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.fetchAllMenuList()
   },
+async fetchAllMenuList() {
+
+  const tagsRes = await getSongMenuTag()
+  const tags = tagsRes.tags
+
+  const allPromises = []
+  for(const tag of tags) {
+    const promise = getSongMenuList(tag.name)
+    allPromises.push(promise)
+  }
+
+  Promise.all(allPromises).then( res => {
+    this.setData({songMenu:res})
+  })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
